@@ -1072,7 +1072,7 @@ footer {
     }
 
     .search-container {
-        width: 200px;
+        width: 100px;
     }
 
     .hero {
@@ -1095,4 +1095,5 @@ footer {
     .section-title {
         font-size: 1.8rem;
     }
+
 }
