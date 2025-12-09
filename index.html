@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhoneBuzz India - Latest Mobile Phones News & Reviews</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>📱 PhoneBuzz <span>India</span></h1>
+                <p>Latest Mobile News & Reviews</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#latest" class="nav-link active">Latest Phones</a></li>
+                <li><a href="#upcoming" class="nav-link">Upcoming</a></li>
+                <li><a href="#comparison" class="nav-link">Compare</a></li>
+                <li><a href="#deals" class="nav-link">Deals</a></li>
+            </ul>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search phones...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <h3>PhoneBuzz India</h3>
+            <button class="close-mobile-nav"><i class="fas fa-times"></i></button>
+        </div>
+        <ul>
+            <li><a href="#latest"><i class="fas fa-fire"></i> Latest Phones</a></li>
+            <li><a href="#upcoming"><i class="fas fa-calendar-alt"></i> Upcoming</a></li>
+            <li><a href="#comparison"><i class="fas fa-balance-scale"></i> Compare</a></li>
+            <li><a href="#deals"><i class="fas fa-tag"></i> Deals</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Latest Phone Launch: <span class="highlight">iphone17 series</span></h2>
+                <p>Exclusive first look, Indian pricing, availability & specifications</p>
+                <div class="hero-buttons">
+                    <a href="#featured" class="btn btn-primary">View Details</a>
+                    <a href="#latest" class="btn btn-secondary">All Latest Phones</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://cdn.conforama.ch/medias/600000/10000/9000/300/70/G_619374_H.webp" alt="Latest Phone">
+            </div>
+        </div>
+    </header>
+
+    <!-- Quick Stats -->
+    <!-- <section class="stats">
+        <div class="container">
+            <div class="stat-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>500+</h3>
+                <p>Phones Reviewed</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3>50K+</h3>
+                <p>Monthly Visitors</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-rupee-sign"></i>
+                <h3>₹2Cr+</h3>
+                <p>Saved by Users</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-bolt"></i>
+                <h3>24/7</h3>
+                <p>News Updates</p>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Latest Phones Section -->
+    <section id="latest" class="phones-section">
+        <div class="container">
+            <h2 class="section-title">🔥 Latest Phone Launches</h2>
+            <p class="section-subtitle">All latest phones including premium and budget options</p>
+            
+            <div class="filter-options">
+                <button class="filter-btn active" data-filter="all">All Brands</button>
+                <button class="filter-btn" data-filter="samsung">Samsung</button>
+                <button class="filter-btn" data-filter="apple">Apple iPhone</button>
+                <button class="filter-btn" data-filter="xiaomi">Xiaomi</button>
+                <button class="filter-btn" data-filter="oneplus">OnePlus</button>
+                <button class="filter-btn" data-filter="realme">Realme</button>
+                <button class="filter-btn" data-filter="other">Others</button>
+            </div>
+            
+            <div class="phones-grid" id="phones-container">
+                <!-- All phones loaded dynamically -->
+                <div class="loading">Loading latest phones...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Phones -->
+    <section id="upcoming" class="upcoming-section">
+        <div class="container">
+            <h2 class="section-title">📅 Upcoming Phones in India</h2>
+            <div class="upcoming-list" id="upcoming-container">
+                <!-- Upcoming phones loaded dynamically -->
+                <div class="loading">Loading upcoming phones...</div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Comparison Tool -->
+    <section id="comparison" class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">📊 Compare Phones</h2>
+            <p class="section-subtitle">Compare specifications side by side</p>
+            
+            <div class="comparison-tool">
+                <div class="compare-select">
+                    <div class="select-group">
+                        <label for="phone1">Select First Phone:</label>
+                        <select id="phone1">
+                            <option value="">Select Phone 1</option>
+                        </select>
+                    </div>
+                    <div class="vs-text">VS</div>
+                    <div class="select-group">
+                        <label for="phone2">Select Second Phone:</label>
+                        <select id="phone2">
+                            <option value="">Select Phone 2</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" id="compare-btn">Compare Now</button>
+                
+                <div class="comparison-result" id="comparison-result">
+                    <!-- Comparison results appear here -->
+                    <div class="comparison-placeholder">
+                        <i class="fas fa-balance-scale"></i>
+                        <p>Select two phones to compare their specifications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Deals Section -->
+    <section id="deals" class="deals-section">
+        <div class="container">
+            <h2 class="section-title">🔥 Today's Best Deals</h2>
+            <p class="section-subtitle">Special discounts & offers on phones</p>
+            
+            <div class="deals-grid">
+                <div class="deal-card">
+                    <div class="deal-badge">30% OFF</div>
+                    <h4>Flipkart Big Billion Days</h4>
+                    <p>Up to ₹15,000 off on premium phones</p>
+                    <a href="#" class="deal-link">View Deal →</a>
+                </div>
+                <div class="deal-card">
+                    <div class="deal-badge">₹5,000 OFF</div>
+                    <h4>Amazon Great Indian Festival</h4>
+                    <p>Exchange bonus + bank discounts</p>
+                    <a href="#" class="deal-link">View Deal →</a>
+                </div>
+                <div class="deal-card">
+                    <div class="deal-badge">No Cost EMI</div>
+                    <h4>Credit Card Offers</h4>
+                    <p>24 months EMI on all phones</p>
+                    <a href="#" class="deal-link">View Deal →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PhoneBuzz India</h3>
+                    <p>Your trusted source for latest mobile phone news, reviews, and prices in India.</p>
+                    <div class="footer-logo">📱 PhoneBuzz</div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#latest"><i class="fas fa-chevron-right"></i> Latest Phones</a>
+                    <a href="#upcoming"><i class="fas fa-chevron-right"></i> Upcoming Phones</a>
+                    <a href="#comparison"><i class="fas fa-chevron-right"></i> Phone Comparison</a>
+                    <a href="#deals"><i class="fas fa-chevron-right"></i> Best Deals</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Popular Brands</h4>
+                    <a href="#"><i class="fas fa-mobile-alt"></i> Samsung</a>
+                    <a href="#"><i class="fas fa-mobile-alt"></i> Apple iPhone</a>
+                    <a href="#"><i class="fas fa-mobile-alt"></i> Xiaomi</a>
+                    <a href="#"><i class="fas fa-mobile-alt"></i> OnePlus</a>
+                    <a href="#"><i class="fas fa-mobile-alt"></i> Realme</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact & Support</h4>
+                    <p><i class="fas fa-envelope"></i> ravi2005r@gmail.com</p>
+                    <p><i class="fas fa-bullhorn"></i> ads@phonebuzzindia.com</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>© 2024 PhoneBuzz India. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Disclaimer</a>
+                    </div>
+                </div>
+                <div class="footer-note">
+                    <p><i class="fas fa-exclamation-circle"></i> Prices are in Indian Rupees (₹). Data is updated daily. Affiliate links may earn us commission.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="scroll-top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
+    <script src="script.js"></script>
+    <script src="data/phones.js"></script>
+</body>
+</html>
